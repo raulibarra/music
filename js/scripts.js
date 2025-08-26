@@ -127,4 +127,25 @@ function autoCheckForHashRedirects(){
   console.log(`${autoCheckForHashRedirects.name}: hash not found`);
   return false;
 }
+
+const texts = [
+  "Technical Music Composer",
+  "Orchestral Game Composer",
+  "Interactive Audio Composer",
+  "Game Music Composer"
+];
+let index = 0;
+
+function cycleText() {
+  const subtitleElement = document.getElementById('subtitle');
+  subtitleElement.style.opacity = 0; // Start fade-out
+
+  setTimeout(() => {
+    subtitleElement.textContent = texts[index];
+    subtitleElement.style.opacity = 1; // Start fade-in
+    index = (index + 1) % texts.length;
+  }, 750); // Wait for fade-out to complete
+}
+
+setInterval(cycleText, 3000); // Change text every 3 seconds
   
